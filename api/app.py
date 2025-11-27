@@ -12,8 +12,12 @@ CORS(app)
 usuarios = []
 
 @app.route("/")
-def home():
+def index():
     return render_template("index.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/cadastro", methods=["POST"])
 def cadastro():
