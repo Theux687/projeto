@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrace - Login</title>
+    <link rel="stylesheet" href="../style.css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="welcome-section">
+            <div class="logo">EcoTrace</div>
+            <div class="tagline">Sustentabilidade e tecnologia conectando sua indústria</div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">♻️</div>
+                    <div>Monitoramento sustentável</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <div>Relatórios em tempo real</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌱</div>
+                    <div>Gestão ecológica</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <h2 class="login-title">Bem-vindo de volta</h2>
+            <p class="login-subtitle">Faça login na sua conta</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="sec@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Sua senha" required>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Esqueci minha senha</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                
+                <div class="divider">ou</div>
+                
+                <button type="button" class="btn btn-google">
+                    <span class="google-icon">G</span>
+                    Continuar com o Google
+                </button>
+
+                <div class="cadastro-link">
+                    Novo usuário? <a href="cadastro.html">Cadastre-se aqui</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            
+            const userData = {
+                email: email,
+                password: password,
+                loginTime: new Date().toLocaleString('pt-BR'),
+                isLoggedIn: true
+            };
+            
+            localStorage.setItem('userData', JSON.stringify(userData));
+            localStorage.setItem('isUserLoggedIn', 'true');
+            
+            
+            alert('Login realizado com sucesso! Redirecionando...');
+            
+            
+            window.location.href = 'index.html';
+        });
+
+        document.querySelector('.btn-google').addEventListener('click', function() {
+            
+            const userData = {
+                email: 'usuario.google@gmail.com',
+                loginTime: new Date().toLocaleString('pt-BR'),
+                isLoggedIn: true,
+                provider: 'google'
+            };
+            
+            localStorage.setItem('userData', JSON.stringify(userData));
+            localStorage.setItem('isUserLoggedIn', 'true');
+            
+            alert('Login com Google realizado! Redirecionando...');
+            window.location.href = 'dashboard.html';
+        });
+
+        
+        window.addEventListener('load', function() {
+            const isLoggedIn = localStorage.getItem('isUserLoggedIn');
+            if (isLoggedIn === 'true') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

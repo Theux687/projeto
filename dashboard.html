@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - EcoTrace</title>
+    <link rel="stylesheet" href="../style.css/style.css" />
+</head>
+<body class="dashboard-body">
+    <header class="dashboard-header">
+        <div class="logo">
+            <div class="logo-text">EcoTrace</div>
+        </div>
+        <nav class="menu-topo">
+            <span id="user-name">Olá, Usuário!</span>
+            <a href="#" id="logoutBtn" class="btn-sair">Sair</a>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar-dashboard">
+            <h3>Minha Empresa</h3>
+            <ul>
+                <li><a href="#resumo" class="nav-link active">Resumo</a></li>
+                <li><a href="#residuos" class="nav-link">Resíduos</a></li>
+                <li><a href="#energia" class="nav-link">Energia</a></li>
+                <li><a href="#esg" class="nav-link">Relatórios ESG</a></li>
+                <li><a href="#alertas" class="nav-link">Alertas</a></li>
+                <li><a href="#configuracoes" class="nav-link">Configurações</a></li>
+            </ul>
+        </aside>
+
+        <main class="dashboard-main">
+            
+            <section id="resumo" class="dashboard-section active">
+                <h1>Dashboard Sustentável</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Resíduos Rastreados</h3>
+                        <p class="stat-number">1.245 kg</p>
+                        <span class="stat-trend positive">↗ 12%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Energia Economizada</h3>
+                        <p class="stat-number">3.458 kWh</p>
+                        <span class="stat-trend positive">↗ 8%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>CO₂ Reduzido</h3>
+                        <p class="stat-number">2.1 t</p>
+                        <span class="stat-trend positive">↗ 15%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Alertas Ativos</h3>
+                        <p class="stat-number">3</p>
+                        <span class="stat-trend negative">↘ 25%</span>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Atividade Recente</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-icon">📊</span>
+                            <div class="activity-content">
+                                <p><strong>Relatório ESG gerado</strong></p>
+                                <small>Há 2 horas - Download disponível</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">⚠️</span>
+                            <div class="activity-content">
+                                <p><strong>Alerta: Consumo elevado de energia</strong></p>
+                                <small>Setor de Produção B - Há 5 horas</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">♻️</span>
+                            <div class="activity-content">
+                                <p><strong>Resíduos destinados corretamente</strong></p>
+                                <small>1.2 toneladas - Há 1 dia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="residuos" class="dashboard-section">
+                <h1>Gestão de Resíduos</h1>
+                <div class="content-placeholder">
+                    <p>📦 Controle completo de resíduos industriais</p>
+                    <p>• Rastreamento em tempo real</p>
+                    <p>• Relatórios de destinação</p>
+                    <p>• Metas de redução</p>
+                </div>
+            </section>
+
+            
+            <section id="energia" class="dashboard-section">
+                <h1>Monitoramento Energético</h1>
+                <div class="content-placeholder">
+                    <p>⚡ Análise de consumo energético</p>
+                    <p>• Gráficos de consumo por setor</p>
+                    <p>• Alertas de desperdício</p>
+                    <p>• Sugestões de economia</p>
+                </div>
+            </section>
+
+            
+            <section id="esg" class="dashboard-section">
+                <h1>Relatórios ESG</h1>
+                <div class="content-placeholder">
+                    <p>📑 Relatórios automáticos de sustentabilidade</p>
+                    <p>• Indicadores ambientais</p>
+                    <p>• Compliance regulatório</p>
+                    <p>• Exportação para stakeholders</p>
+                </div>
+            </section>
+
+            <!-- SEÇÃO ALERTAS -->
+            <section id="alertas" class="dashboard-section">
+                <h1>Alertas do Sistema</h1>
+                <div class="content-placeholder">
+                    <p>🔔 Notificações e alertas importantes</p>
+                    <p>• Monitoramento em tempo real</p>
+                    <p>• Configuração de limites</p>
+                    <p>• Histórico de alertas</p>
+                </div>
+            </section>
+
+            
+            <section id="configuracoes" class="dashboard-section">
+                <h1>Configurações</h1>
+                <div class="content-placeholder">
+                    <p>⚙️ Configurações do sistema</p>
+                    <p>• Perfil da empresa</p>
+                    <p>• Preferências de notificação</p>
+                    <p>• Integrações</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        
+        window.addEventListener('load', function() {
+            const isLoggedIn = localStorage.getItem('isUserLoggedIn');
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+            
+            if (isLoggedIn !== 'true') {
+                alert('Você precisa fazer login primeiro!');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+        
+            const userName = document.getElementById('user-name');
+            if (userData.email) {
+                userName.textContent = `Olá, ${userData.email.split('@')[0]}!`;
+            }
+        });
+
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+               
+                document.querySelectorAll('.dashboard-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).classList.add('active');
+            });
+        });
+
+       
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (confirm('Deseja realmente sair?')) {
+                localStorage.removeItem('isUserLoggedIn');
+                localStorage.removeItem('userData');
+                alert('Logout realizado com sucesso!');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
