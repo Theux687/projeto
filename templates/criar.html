@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - ECOCOMUNIDADE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div id="interface">
+
+    <header id="cabecalho">
+        <h1>ECOCOMUNIDADE</h1>
+        <nav id="menu-prin">
+            <ul>
+                <li><a href="index.html">O que é a Ecocomunidade?</a></li>
+                <li><a href="index.html">Comece aqui</a></li>
+                <li><a href="index.html">Ecoforum</a></li>
+                <li><a href="index.html">Apoiar o projeto</a></li>
+                <li><a href="index.html">Ensinar sustentabilidade</a></li>
+                <li><a href="index.html">Ecocomunidade na sua escola</a></li>
+                <li class="destaque"><a href="criar.html">SEJA MEMBRO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="corpo">
+        <article id="pagina-cadastro">
+            <hgroup id="cabecalho-pagina-principal">
+                <h1>Criar Nova Conta</h1>
+            </hgroup>
+
+            <div class="formulario-cadastro">
+                <form id="form-cadastro">
+                    <div class="campo-form">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="confirmar-senha">Confirmar Senha:</label>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="tipo-conta">Tipo de Conta:</label>
+                        <select id="tipo-conta" name="tipo-conta">
+                            <option value="estudante">Estudante</option>
+                            <option value="professor">Professor</option>
+                            <option value="comunidade">Comunidade</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-form checkbox">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <label for="termos">Aceito os termos e condições</label>
+                    </div>
+
+                    <button type="button" class="btn-cadastrar" onclick="cadastrarUsuario()">Criar Conta</button>
+                    
+                    <div class="voltar-inicio">
+                        <a href="index.html">← Voltar para a página inicial</a>
+                    </div>
+                </form>
+            </div>
+
+        </article>
+    </section>
+
+    <footer id="rodape">
+        <p>Copyright 2024 - ECOCOMUNIDADE<br>
+            <a href="https://www.instagram.com/ecocomunidade/" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+</div>
+
+<script>
+    function cadastrarUsuario() {
+        const senha = document.getElementById('senha').value;
+        const confirmarSenha = document.getElementById('confirmar-senha').value;
+        const termos = document.getElementById('termos').checked;
+        
+        
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem!');
+            return;
+        }
+        
+       
+        if (!termos) {
+            alert('Você precisa aceitar os termos e condições!');
+            return;
+        }
+        
+        
+        alert('Conta criada com sucesso! Redirecionando para a página inicial...');
+        
+        
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
